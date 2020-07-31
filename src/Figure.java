@@ -1,3 +1,5 @@
 abstract class Figure {
-    abstract public String paint();
+    public String color;
+
+    abstract public String draw();
 }

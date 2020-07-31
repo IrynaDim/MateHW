@@ -1,31 +1,30 @@
 public class Trapezoid extends Figure {
-    private String color;
-    private int a;
-    private int b;
-    private int c;
-    private int d;
+    private int baseSideA;
+    private int baseSideB;
+    private int sideC;
+    private int sideD;
 
-    public Trapezoid(String color, int a, int b, int c, int d) {
+    public Trapezoid(String color, int baseSideA, int baseSideB, int sideC, int sideD) {
         this.color = color;
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+        this.baseSideA = baseSideA;
+        this.baseSideB = baseSideB;
+        this.sideC = sideC;
+        this.sideD = sideD;
     }
 
     public String getColor(String color) {
         return color;
     }
 
-    public int getSquare(int a, int b, int c, int d) {
-        int high = (int) Math.sqrt((c * c) - (((a - b) * (a - b) + c * c - d * d) / (2 * (a - b + 1))));
-        int square = (int) ((a + d) * 0.5 * high);
-        return square;
-        // формула с ошибкой. лень было разбиратся в площади. хотелось просто понять суть задачи
+    public int getArea(int baseSideA, int baseSideB, int sideC, int sideD) {
+        int firsPartOfFormula = ((sideC * sideC - sideD * sideD /
+                (baseSideB - baseSideA)) + baseSideB - baseSideA);
+        int high = (int) (sideC * sideC - 0.25 * firsPartOfFormula * firsPartOfFormula);
+        return ((baseSideA + baseSideB) * high) / 2;
     }
 
-    public String paint() {
-        return "трапеция, " + "площадь: " + getSquare(a, b, c, d) + "кв.ед., " +
+    public String draw() {
+        return "Трапеция, " + "площадь: " + getArea(baseSideA, baseSideB, sideC, sideD) + " кв.ед., " +
                 "цвет: " + getColor(color);
     }
 }

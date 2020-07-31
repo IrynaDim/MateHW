@@ -1,28 +1,25 @@
 public class Square extends Figure {
-    private String color;
-    private int a;
+    private int sideA;
 
-    public Square(String color, int a) {
+    public Square(String color, int sideA) {
         this.color = color;
-        this.a = a;
+        this.sideA = sideA;
     }
 
     public String getColor(String color) {
         return color;
     }
 
-    public int getSquare(int a) {
-        return a * a;
+    public int getArea(int sideA) {
+        return sideA * sideA;
     }
 
     public int getSide() {
-        return a;
+        return sideA;
     }
 
-    public String paint() {
-        return "квадрат, " + "площадь: " + getSquare(a) + "кв.ед., " +
-                "строна: " + getSide() + "ед., " + "цвет: " + getColor(color);
+    public String draw() {
+        return "Квадрат, " + "площадь: " + getArea(sideA) + " кв.ед., " +
+                "строна: " + getSide() + " ед., " + "цвет: " + getColor(color);
     }
 }
-
-

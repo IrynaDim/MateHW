@@ -10,7 +10,7 @@ public class Square extends Figure {
         return color;
     }
 
-    public int getArea(int sideA) {
+    public int getSquare(int sideA) {
         return sideA * sideA;
     }
 
@@ -19,7 +19,7 @@ public class Square extends Figure {
     }
 
     public String draw() {
-        return "Квадрат, " + "площадь: " + getArea(sideA) + " кв.ед., " +
-                "строна: " + getSide() + " ед., " + "цвет: " + getColor(color);
+        return "квадрат, " + "площадь: " + getSquare(sideA) + "кв.ед., " +
+                "строна: " + getSide() + "ед., " + "цвет: " + getColor(color);
     }
 }

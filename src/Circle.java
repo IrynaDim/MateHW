@@ -11,11 +11,11 @@ public class Circle extends Figure {
     }
 
     public int getSquare(double radius) {
-        return (int) ((int) 2 * Math.PI * radius);
+        return (int) ((int) radius * Math.PI);
     }
 
     public String draw() {
-        return "Круг, " + "площадь: " + getSquare(radius) + " кв.ед., " +
-                " цвет: " + getColor(color);
+        return "круг, " + "площадь: " + getSquare(radius) + "кв.ед., " +
+                "цвет: " + getColor(color);
     }
 }

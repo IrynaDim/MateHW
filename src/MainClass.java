@@ -33,24 +33,21 @@ public class MainClass {
         for (int i = 0; i < figures.length; i++) {
             switch ((int) ((Math.random() * 4))) {
                 case 0:
-                    figures[i] = new Circle(Math.random() * 10 + 1, getRandomColor());
+                    figures[i] = new Circle(Math.random() * 10 + 5, getRandomColor());
                     break;
                 case 1:
                     figures[i] = new Trapezoid(getRandomColor(),
-                            (int) Math.random() * 15 + 18,
-                            (int) Math.random() * 10 + 1,
-                            (int) Math.random() * 15 + 5,
-                            (int) Math.random() * 15 + 5);
+                            (int) Math.random() * 10 + 5,
+                            (int) Math.random() * 10 + 15,
+                            (int) Math.random() * 10 + 5);
                     break;
                 case 2:
-                    figures[i] = new Triangle(getRandomColor(),
-                            (int) Math.random() * 15 + 5,
-                            (int) Math.random() * 15 + 5,
-                            (int) Math.random() * 15 + 5);
+                    figures[i] = new Triangle(getRandomColor(), (int) Math.random() * 10 + 5,
+                            (int) Math.random() * 10 + 5);
                     break;
                 case 3:
                     figures[i] = new Square(getRandomColor(),
-                            (int) Math.random() * 15 + 5);
+                            (int) Math.random() * 10 + 5);
                     break;
             }
         }

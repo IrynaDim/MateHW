@@ -1,29 +1,31 @@
 public class Triangle extends Figure {
-    private int sideA;
-    private int sideB;
-    private int hypotenuse;
+    private int cathetusA;
+    private int cathetusB;
 
-    public Triangle(String color, int sideA, int sideB, int hypotenuse) {
+    public Triangle(String color, int cathetusA, int cathetusB) {
         this.color = color;
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.hypotenuse = hypotenuse;
+        this.cathetusA = cathetusA;
+        this.cathetusB = cathetusB;
     }
 
     public String getColor(String color) {
         return color;
     }
 
-    public int getArea(int sideA, int sideB) {
-        return (sideA * sideB) / 2;
+    public int hypotenuse(int cathetusA, int cathetusB) {
+        return (int) Math.sqrt(cathetusA * cathetusA + cathetusB * cathetusB);
     }
 
-    public int hypotenuse(int a, int b, int c) {
-        return Math.max(c, Math.max(a, b));
+    public int getSquare(int cathetusA, int cathetusB) {
+        int hypotenuse = hypotenuse(cathetusA, cathetusB);
+        int semiPerimeter = (int) ((cathetusA + cathetusB + hypotenuse) * 0.5);
+        int square = (int) ((2 * Math.sqrt(semiPerimeter * (semiPerimeter - cathetusA) *
+                (semiPerimeter - cathetusB) * (semiPerimeter - hypotenuse))) / cathetusA);
+        return square;
     }
 
     public String draw() {
-        return "Треугольник, " + "площадь: " + getArea(sideA, sideB) + " кв.ед., " +
-                "гипотенуза: " + hypotenuse(sideA, sideB, hypotenuse) + " ед., " + "цвет: " + getColor(color);
+        return "Треугольник, " + "площадь: " + getSquare(cathetusA, cathetusB) + "кв.ед., " +
+                "гипотенуза: " + hypotenuse(cathetusA, cathetusB) + "ед., " + "цвет: " + getColor(color);
     }
 }

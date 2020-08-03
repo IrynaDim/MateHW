@@ -1,14 +1,12 @@
 public class Trapezoid extends Figure {
-    private int baseSideA;
-    private int baseSideB;
-    private int sideC;
+    private int sideA;
+    private int sideB;
     private int sideD;
 
-    public Trapezoid(String color, int baseSideA, int baseSideB, int sideC, int sideD) {
+    public Trapezoid(String color, int sideA, int sideB, int sideD) {
         this.color = color;
-        this.baseSideA = baseSideA;
-        this.baseSideB = baseSideB;
-        this.sideC = sideC;
+        this.sideA = sideA;
+        this.sideB = sideB;
         this.sideD = sideD;
     }
 
@@ -16,15 +14,22 @@ public class Trapezoid extends Figure {
         return color;
     }
 
-    public int getArea(int baseSideA, int baseSideB, int sideC, int sideD) {
-        int firsPartOfFormula = ((sideC * sideC - sideD * sideD /
-                (baseSideB - baseSideA)) + baseSideB - baseSideA);
-        int high = (int) (sideC * sideC - 0.25 * firsPartOfFormula * firsPartOfFormula);
-        return ((baseSideA + baseSideB) * high) / 2;
+    public int getSideC(int sideA, int sideB, int sideD) {
+        int sideC = (int) Math.sqrt(sideD * sideD - (sideA * sideA - sideB * sideB) * (sideA * sideA - sideB * sideB));
+        return sideC;
+    }
+
+    public int getSquare(int sideA, int sideB, int sideD) {
+        int sideC = getSideC(sideA, sideB, sideD);
+        int high = (int) Math.sqrt((sideC * sideC) - (((sideA - sideB) * (sideA - sideB) + sideD * sideD - sideD * sideD)
+                / (2 * (sideA - sideB))));
+        int square = (int) ((sideA + sideD) * 0.5 * high);
+        return square;
     }
 
     public String draw() {
-        return "Трапеция, " + "площадь: " + getArea(baseSideA, baseSideB, sideC, sideD) + " кв.ед., " +
+        return "трапеция, " + "площадь: " + getSquare(sideA, sideB, sideD) + "кв.ед., " +
                 "цвет: " + getColor(color);
     }
 }
+
